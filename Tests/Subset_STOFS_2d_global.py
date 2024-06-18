@@ -72,7 +72,7 @@ def read_netcdf_from_s3(bucket_name, key):
     """
     s3 = s3fs.S3FileSystem(anon=True)
     url = f"s3://{bucket_name}/{key}"
-    print(url)
+    
 
     ds = xr.open_dataset(s3.open(url, 'rb'), drop_variables=['nvel'])
     return ds
@@ -191,7 +191,7 @@ def main(bucket_name, model_name, dates, cycles, regions, stofs_files, region_na
             for stofs_file in stofs_files:
                 filename = f't{cycle}z.{stofs_file}.nc'
                 key = f'{base_key}/{model_name}.{filename}'
-                print(key)
+                
                 dataset = read_netcdf_from_s3(bucket_name, key)
                 normalized_dataset = normalize_data(dataset, model_name, cycle, bucket_name, base_key,
                                                     'fields.cwl', filename, date)
@@ -220,13 +220,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     regions = parse_regions(args.regions)
-    print(args.bucket_name)
-    print(args.model_name)
-    print(args.dates)
-    print(args.cycles)
-    print(regions)
-    print(args.stofs_files)
-    print(args.region_names)
+    
         
     main(args.bucket_name, args.model_name, args.dates, args.cycles, regions, args.stofs_files, args.region_names)
 
