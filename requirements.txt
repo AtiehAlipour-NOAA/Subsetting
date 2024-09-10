@@ -134,6 +134,7 @@ requests
 rfc3339-validator 
 rfc3986-validator 
 rpds-py 
+s3fs
 scipy==1.13.0
 Send2Trash 
 setuptools==68.2.2
