@@ -197,4 +197,4 @@ dependencies:
       - yarl==1.9.4
       - zarr==2.17.2
       - zict==3.0.0
-prefix: /nhc/Atieh.Alipour/environment/miniconda3/envs/env_subsetting
+
